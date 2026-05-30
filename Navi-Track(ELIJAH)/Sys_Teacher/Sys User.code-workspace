@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"name": "Sys User",
+			"path": "../Sys User"
+		},
+		{
+			"name": "Sys Admin",
+			"path": "../Sys Admin"
+		},
+		{
+			"name": "Sys Teacher",
+			"path": "."
+		},
+		{
+			"name": "R sys",
+			"path": "../R sys"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Sys User"
+	}
+}

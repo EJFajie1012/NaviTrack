@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+:root {
+    --psu-blue: #0A2540;
+    --psu-gold: #E8B923;
+}
+
+body {
+    font-family: 'Instrument Sans', system-ui, sans-serif;
+}
+
+.display-font {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.admin-nav-item {
+    transition: all 0.2s ease;
+}
+
+.admin-nav-item.active {
+    background-color: rgba(232, 185, 35, 0.15);
+    color: #E8B923;
+    border-left: 4px solid #E8B923;
+}
+
+.admin-nav-item:hover {
+    background-color: rgba(255,255,255,0.08);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.status-active {
+    background-color: #10b981;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+            
+    /* Minimalist Loading Screen */
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #0A2540 0%, #001A33 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+
+        .loader-container {
+            text-align: center;
+        }
+
+        .nav-logo {
+            width: 80px;
+            height: 80px;
+            background: #E8B923;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            animation: rotate 3s linear infinite;
+            box-shadow: 0 10px 30px rgba(232, 185, 35, 0.3);
+        }
+
+        .nav-logo span {
+            font-size: 42px;
+            color: #0A2540;
+        }
+
+        .loading-text {
+            color: #E8B923;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            font-weight: 500;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+}
+        :root {
+            --psu-blue: #0A2540;
+            --psu-gold: #E8B923;
+        }
+
+        body {
+            font-family: 'Instrument Sans', system-ui, sans-serif;
+        }
+
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* ==================== UPGRADED LOADING SCREEN ==================== */
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #0A2540;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        /* Animated background grid */
+        #loading-screen::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(232, 185, 35, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(232, 185, 35, 0.04) 1px, transparent 1px);
+            background-size: 48px 48px;
+            animation: gridPan 12s linear infinite;
+        }
+
+        @keyframes gridPan {
+            from { background-position: 0 0; }
+            to { background-position: 48px 48px; }
+        }
+
+        /* Radial glow behind logo */
+        .loader-glow {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(232,185,35,0.18) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glowPulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .loader-container {
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        /* Compass ring */
+        .compass-ring {
+            position: relative;
+            width: 112px;
+            height: 112px;
+            margin-bottom: 28px;
+        }
+
+        .compass-ring svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            animation: ringRotate 6s linear infinite;
+        }
+
+        @keyframes ringRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .compass-inner {
+            position: absolute;
+            inset: 14px;
+            background: #E8B923;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 40px rgba(232, 185, 35, 0.5);
+            animation: innerPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes innerPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(232, 185, 35, 0.4); }
+            50% { box-shadow: 0 0 55px rgba(232, 185, 35, 0.75); }
+        }
+
+        /* Compass needle */
+        .needle {
+            position: absolute;
+            width: 4px;
+            height: 28px;
+            top: 50%;
+            left: 50%;
+            transform-origin: 50% 100%;
+            transform: translateX(-50%) translateY(-100%);
+            animation: needleSpin 1.6s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+        }
+
+        .needle-north {
+            background: #0A2540;
+            border-radius: 2px 2px 0 0;
+        }
+
+        @keyframes needleSpin {
+            0%   { transform: translateX(-50%) translateY(-100%) rotate(0deg); }
+            40%  { transform: translateX(-50%) translateY(-100%) rotate(165deg); }
+            55%  { transform: translateX(-50%) translateY(-100%) rotate(150deg); }
+            100% { transform: translateX(-50%) translateY(-100%) rotate(360deg); }
+        }
+
+        /* Brand name */
+        .brand-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeUp 0.6s ease 0.3s forwards;
+        }
+
+        .brand-sub {
+            font-size: 0.78rem;
+            letter-spacing: 5px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            margin-top: 4px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.5s forwards;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Progress bar area */
+        .progress-area {
+            margin-top: 40px;
+            width: 220px;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.7s forwards;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-status {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+        }
+
+        .progress-pct {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            color: #E8B923;
+            font-weight: 500;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, rgba(232,185,35,0.5), #E8B923);
+            border-radius: 99px;
+            width: 0%;
+            transition: width 0.25s ease;
+            position: relative;
+        }
+
+        /* Shimmer on progress fill */
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 30px; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            animation: shimmerMove 1.2s ease-in-out infinite;
+        }
+
+        @keyframes shimmerMove {
+            from { transform: translateX(-30px); opacity: 0; }
+            50% { opacity: 1; }
+            to { transform: translateX(0px); opacity: 0; }
+        }
+
+        /* Dots below */
+        .loader-dots {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.9s forwards;
+        }
+
+        .loader-dots span {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(232, 185, 35, 0.4);
+        }
+
+        .loader-dots span:nth-child(1) { animation: dotPop 1.2s ease 0.0s infinite; }
+        .loader-dots span:nth-child(2) { animation: dotPop 1.2s ease 0.2s infinite; }
+        .loader-dots span:nth-child(3) { animation: dotPop 1.2s ease 0.4s infinite; }
+
+        @keyframes dotPop {
+            0%, 100% { background: rgba(232, 185, 35, 0.3); transform: scale(1); }
+            50% { background: #E8B923; transform: scale(1.4); }
+        }
+
+        /* Exit transition */
+        #loading-screen.fade-out {
+            animation: exitScreen 0.7s ease forwards;
+        }
+
+        @keyframes exitScreen {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.04); pointer-events: none; }
+        }
+
+        /* Admin Styles */
+        .admin-nav-item {
+            transition: all 0.2s ease;
+        }
+
+        .admin-nav-item.active {
+            background-color: rgba(232, 185, 35, 0.15);
+            color: #E8B923;
+            border-left: 4px solid #E8B923;
+        }
+
+        .status-active {
+            background-color: #10b981;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .modal {
+            animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
